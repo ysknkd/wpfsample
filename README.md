@@ -85,3 +85,79 @@ XAMLで読み込んだリソースは、Viewには反映されていますが、
     var viewModel = (ViewModelBase)DataContext;
     viewModel.FindResources = FindResource
 ```
+
+## バリデーションの実施
+XAML側での入力制限とModelによるバリデーションを検討した結果を以下に記載します。
+
+### XAMLによる入力制限
+入力の桁数については、XAML側で簡単に実施することができます。
+ただし、入力可能文字を限定するためにはロジックを書かなくてはなりません。
+IMEの変更を制限することはできますが、コピペで入力される文字を制限することまではできません。
+
+### Modelによるバリデーション
+ViewModelからModelに対して操作を行った際に、Modelでバリデーションを実施することを検討してみました。
+(ViewやViewModelでバリデーションを実施する記事はよくありますが、Modelで実施する記事はなかなか見つかりませんでした。)
+
+`ArtistModel.cs` で、処理を実施する前にバリデーションを実施して、問題があればエラーを返却します。
+エラーを返却する際に、問題のプロパティ名を一緒に渡しています。
+
+```
+    public async Task<TaskResult> Add()
+    {
+        if (string.IsNullOrEmpty(ArtistName))
+        {
+            return new TaskResult
+            {
+                result = TaskResultType.EREQUIRED, propertyName = nameof(ArtistName)
+            };
+        }
+
+        await Task.Run(() =>
+        {
+            // 時間のかかる処理を再現
+            Thread.Sleep(200);
+        });
+        Artists.Add(new Artist { Id = Artists.Count, Name = ArtistName });
+
+        return new TaskResult
+        {
+            result = TaskResultType.SUCCEEDED
+        };
+    }
+```
+
+`MainWindowViewModel` では、実行結果を確認して、必要であればダイアログを表示します。
+ダイアログで表示するメッセージは、リソースから取得したものです。
+
+```cs
+    private async void ExecuteAddArtist(object state)
+    {
+        TaskResult result = await _artists.Add();
+
+        switch (result.result)
+        {
+            case TaskResultType.SUCCEEDED:
+                MessageBox.Show(ArtistName + Resources("MSG_DIALOG_ADDED"), Resources("MSG_DIALOG_TITLE_CONFIRM"));
+                break;
+            case TaskResultType.EREQUIRED:
+                if (result.propertyName == nameof(ArtistName))
+                {
+                    MessageBox.Show(Resources("MSG_DIALOG_REQUIRE"), Resources("MSG_DIALOG_TITLE_ERROR"));
+                }
+                break;
+            default:
+                break;
+        }
+    }
+```
+
+上記の設計で問題なのは（なりそうなのは）...
+
+ 1. 入力した直後にバリデーションを実施できないこと。
+ 2. 問題のプロパティを複数通知できないこと。
+
+くらいでしょうか。
+「2.」に関しては、返却するクラスに手を入れればできそうです。
+
+---
+以上
