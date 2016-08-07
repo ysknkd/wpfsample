@@ -119,7 +119,7 @@ namespace Common
 
         public string Resources(string key)
         {
-            return (string)this.FindResources(key);
+            return (string)FindResources(key);
         }
         #endregion
     }
