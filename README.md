@@ -29,13 +29,19 @@ WPFの標準で特にViewModelとしての基底クラスはないので、ViewM
     ...
 ```
 
-上記内容を追記することで、Viewが生成される際にViewModelも生成されるようになります。
+上記内容を追記すると、Viewが生成される際にViewModelも生成されるようになります。
 
 ## リソースの利用
 WPFでリソースを利用する方法を記載します。
+ここでのリソースは、XAMLのスタイルと、文字列のリソースを指します。
 
 ### リソースの定義方法
-`CommonResources/Themes/Generic.xaml`および`CommonResources/TextResources.xaml`を参照のこと。
+それぞれ以下を参照のこと。
+
+ * XAMLのスタイル
+   * `CommonResources/Themes/Generic.xaml`
+ * 文字列リソース
+   * `CommonResources/TextResources.xaml`
 
 ### 別のDLLからリソースを読み込んで、XAML内で利用する方法
 リソースを使用したいViewのXAMLに以下の記述を追加します。
@@ -158,6 +164,8 @@ ViewModelからModelに対して操作を行った際に、Modelでバリデー�
 
 くらいでしょうか。
 「2.」に関しては、返却するクラスに手を入れればできそうです。
+
+メリットとしては、Model でバリデーションを実施することで、Presentationに依存しないテストが実施できることでしょうか。
 
 ---
 以上
