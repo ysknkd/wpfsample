@@ -26,8 +26,8 @@ namespace WpfSample
         {
             InitializeComponent();
 
-            var viewModel = (MainWindowViewModel)this.DataContext;
-            viewModel.FindResources += this.FindResource;
+            var viewModel = (MainWindowViewModel)DataContext;
+            viewModel.FindResources = FindResource;
         }
     }
 }
