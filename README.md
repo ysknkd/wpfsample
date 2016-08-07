@@ -6,7 +6,7 @@ WPFアプリケーションのプロジェクトを作成した時点では、Vi
 ViewModelを用意して、Viewと関連付けを行う必要があります。
 
 ### ViewModelの用意
-WPFの標準で特にViewModelとしての基底クラスはないので、ViewModelとして必要な機能を備えた抽象クラスを作成して、継承することとします。
+WPF標準としてのViewModelの基底クラスはないので、ViewModelとして必要な機能を備えた抽象クラスを作成して、継承することとします。
 抽象クラスは、`ViewModelBase`として作成します。`ViewModelBase`の内容は`WpfSample/Common/ViewModelBase.cs`を参照してください。
 
 ### XAMLへ宣言の追加
