@@ -9,9 +9,11 @@
     
     <!-- テキストボックスのスタイル -->
     <ControlTemplate x:Key="ValidationErrorTemplate">
-        <StackPanel>
+        <StackPanel Orientation="Vertical">
             <TextBlock Foreground="#FFFFFFFF" Background="Red" Padding="4" FontSize="12" Text="{Binding AdornedElement.(Validation.Errors).CurrentItem.ErrorContent, ElementName=adorned}" />
-            <AdornedElementPlaceholder Margin="0, 4, 0, 0" x:Name="adorned" />
+            <AdornedElementPlaceholder Margin="0, 0, 0, 0" x:Name="adorned">
+                <Border BorderBrush="Red" BorderThickness="2" />
+            </AdornedElementPlaceholder>
         </StackPanel>
     </ControlTemplate>
    
@@ -23,7 +25,6 @@
                 <Setter Property="ToolTip"
                         Value="{Binding Path=(Validation.Errors).CurrentItem.ErrorContent, RelativeSource={RelativeSource Self}}" />
                 -->
-                <Setter Property="BorderBrush" Value="Red" />
                 <Setter Property="Background" Value="Pink" />
             </Trigger>
         </Style.Triggers>

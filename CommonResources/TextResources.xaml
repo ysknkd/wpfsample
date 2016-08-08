@@ -16,5 +16,5 @@
     <system:String x:Key="MSG_DIALOG_REQUIRE">必須項目が入力されていません</system:String>
     <system:String x:Key="MSG_DIALOG_ADDED">を追加しました</system:String>
     
-    <system:String x:Key="MSG_ERROR_ARTIST_ALPHANUMERIC">アーティスト名は英数字で入力してください</system:String>
+    <system:String x:Key="MSG_ERROR_ARTIST_ALPHANUMERIC">英数字で入力してください</system:String>
 </ResourceDictionary>
