@@ -39,7 +39,7 @@
             HorizontalAlignment="Left" Margin="24,149,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="artistName"
             InputMethod.IsInputMethodEnabled="False"
-            Text="{Binding ArtistName}"
+            Text="{Binding Path=ArtistName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
             MaxLength="12"
             HorizontalAlignment="Left" Margin="23,180,0,0" Width="159" Height="30" VerticalAlignment="Top"/>
         <Button x:Name="btnAddArtist"

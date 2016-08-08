@@ -17,7 +17,21 @@ namespace WpfSample.Models
         /// <summary>
         /// 追加するアーティストの名前
         /// </summary>
-        public string ArtistName { get; set; } = "";
+        private string _artistName = "";
+        public string ArtistName {
+            get
+            {
+                return _artistName;
+            }
+            set
+            {
+                string validated = "";
+                Validator.IsAlphanumeric(value, out validated);
+                _artistName = validated;
+
+                RaisePropertyChanged();
+            }
+        }
 
         /// <summary>
         /// アーティストの追加

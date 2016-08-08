@@ -32,7 +32,10 @@ namespace WpfSample.ViewModels
         /// </summary>
         public string ArtistName {
             get { return _artists.ArtistName; }
-            set { _artists.ArtistName = value; }
+            set {
+                _artists.ArtistName = value;
+                RaisePropertyChanged();
+            }
         }
 
         /// <summary>
