@@ -8,8 +8,25 @@
     </Style>
     
     <!-- テキストボックスのスタイル -->
+    <ControlTemplate x:Key="ValidationErrorTemplate">
+        <StackPanel>
+            <TextBlock Foreground="#FFFFFFFF" Background="Red" Padding="4" FontSize="12" Text="{Binding AdornedElement.(Validation.Errors).CurrentItem.ErrorContent, ElementName=adorned}" />
+            <AdornedElementPlaceholder Margin="0, 4, 0, 0" x:Name="adorned" />
+        </StackPanel>
+    </ControlTemplate>
+   
     <Style TargetType="TextBox">
         <Setter Property="Padding" Value="4, 4, 0, 0" />
+        <Style.Triggers>
+            <Trigger Property="Validation.HasError" Value="True">
+                <!--
+                <Setter Property="ToolTip"
+                        Value="{Binding Path=(Validation.Errors).CurrentItem.ErrorContent, RelativeSource={RelativeSource Self}}" />
+                -->
+                <Setter Property="BorderBrush" Value="Red" />
+                <Setter Property="Background" Value="Pink" />
+            </Trigger>
+        </Style.Triggers>
     </Style>
     
     <!-- ボタンのスタイル -->

@@ -1,12 +1,15 @@
 ﻿using Common;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Input;
 using WpfSample.Models;
+using System;
+using System.Collections;
 
 namespace WpfSample.ViewModels
 {
-    class MainWindowViewModel : ViewModelBase
+    class MainWindowViewModel : ViewModelBase, INotifyDataErrorInfo
     {
         private ArtistsModel _artists = new ArtistsModel();
 
@@ -43,6 +46,14 @@ namespace WpfSample.ViewModels
         /// </summary>
         public ICommand AddArtistCommand { get; private set; }
 
+        public bool HasErrors
+        {
+            get
+            {
+                return ((INotifyDataErrorInfo)_artists).HasErrors;
+            }
+        }
+
         private bool CanExecuteAddArtist(object state)
         {
             return true;
@@ -73,6 +84,7 @@ namespace WpfSample.ViewModels
         /// </summary>
         public MainWindowViewModel()
         {
+            Model = _artists;
             AddArtistCommand = CreateCommand(ExecuteAddArtist, CanExecuteAddArtist);
         }
     }

@@ -1,16 +1,21 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
 
 namespace Common
 {
-    public abstract class ViewModelBase : INotifyPropertyChanged, IDataErrorInfo
+    public abstract class ViewModelBase : INotifyPropertyChanged
     {
-        // @see http://qiita.com/hugo-sb/items/f07ef53dea817d198475
+        #region == default properties ==
+        public ModelBase Model;
+        #endregion
 
         #region == implement of INotifyPropertyChanged ==
+        // @see http://qiita.com/hugo-sb/items/f07ef53dea817d198475
         // INotifyPropertyChanged.PropertyChanged の実装
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -21,45 +26,21 @@ namespace Common
         }
         #endregion
 
-        #region == implement of IDataErrorInfo ==
-        // IDataErrorInfo 用のエラーメッセージを保持する辞書
-        private Dictionary<string, string> _ErrorMessages = new Dictionary<string, string>();
+        #region == implement of INotifyDataErrorInfo ==
+        public event EventHandler<DataErrorsChangedEventArgs> ErrorsChanged;
 
-        // IDataErrorInfo.Error の実装
-        string IDataErrorInfo.Error
+        public IEnumerable GetErrors(string propertyName)
         {
-            get { return (_ErrorMessages.Count > 0) ? "Has Error" : null; }
-        }
+            // Model で格納しているメッセージはあくまでもリソースのIDなので、変換する必要がある。
+            IEnumerable errors = ((INotifyDataErrorInfo)Model).GetErrors(propertyName);
+            HashSet<string> errorsForView = new HashSet<string>();
 
-        // IDataErrorInfo.Item の実装
-        string IDataErrorInfo.this[string columnName]
-        {
-            get
+            foreach(var MSG_ID in errors)
             {
-                if (_ErrorMessages.ContainsKey(columnName))
-                {
-                    return _ErrorMessages[columnName];
-                }
-                else
-                {
-                    return null;
-                }
+                errorsForView.Add(Resources((string)MSG_ID));
             }
-        }
 
-        // エラーメッセージのセット
-        protected void SetError(string propertyName, string errorMessage)
-        {
-            _ErrorMessages[propertyName] = errorMessage;
-        }
-
-        // エラーメッセージのクリア
-        protected void ClearError(string propertyName)
-        {
-            if (_ErrorMessages.ContainsKey(propertyName))
-            {
-                _ErrorMessages.Remove(propertyName);
-            }
+            return errorsForView.ToList().AsReadOnly();
         }
         #endregion
 

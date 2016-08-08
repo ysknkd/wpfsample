@@ -1,5 +1,6 @@
 ﻿using Common;
 using System.Collections.ObjectModel;
+using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -25,11 +26,30 @@ namespace WpfSample.Models
             }
             set
             {
-                string validated = "";
-                Validator.IsAlphanumericWithMaxLength(value, 4, out validated);
-                _artistName = validated;
-
+                _artistName = value;
+                ValidateProperty(value);
                 RaisePropertyChanged();
+            }
+        }
+
+        protected void ValidateProperty(object value,[CallerMemberName] string propertyName = null)
+        {
+            switch (propertyName)
+            {
+                case nameof(ArtistName):
+                    string validated = "";
+                    string input = (string)value;
+
+                    if (input.Length > 0
+                        && ! Validator.IsAlphanumericWithMaxLength((string)value, 4, out validated))
+                    {
+                        AddError(nameof(ArtistName), "MSG_ERROR_ARTIST_ALPHANUMERIC");
+                    }
+                    else
+                    {
+                        RemoveError(nameof(ArtistName));
+                    }
+                    break;
             }
         }
 

@@ -45,7 +45,7 @@ namespace Common
             bool isOverflow = (input.Length > maxLength);
 
             return IsAlphanumeric(isOverflow ? input.Substring(0, maxLength) : input, out output)
-                || ! isOverflow;
+                && ! isOverflow;
         }
 
         /// <summary>
@@ -53,7 +53,6 @@ namespace Common
         /// 数字以外の文字列が含まれている場合は、削除した上で検証後の文字列として返却します。
         /// </summary>
         /// <param name="input">検証値</param>
-        /// <param name="maxLength">最大長</param>
         /// <param name="output">検証済みの値</param>
         /// <returns>数字のみで構成されている場合は、true。それ以外は、false</returns>
         static public bool IsNumeric(string input, out string output)
@@ -79,7 +78,7 @@ namespace Common
             bool isOverflow = (input.Length > maxLength);
 
             return IsNumeric(isOverflow ? input.Substring(0, maxLength) : input, out output)
-                || ! isOverflow;
+                && ! isOverflow;
         }
 
     }
