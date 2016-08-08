@@ -26,7 +26,7 @@ namespace WpfSample.Models
             set
             {
                 string validated = "";
-                Validator.IsAlphanumeric(value, out validated);
+                Validator.IsAlphanumericWithMaxLength(value, 4, out validated);
                 _artistName = validated;
 
                 RaisePropertyChanged();
