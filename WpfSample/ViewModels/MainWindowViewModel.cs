@@ -9,7 +9,7 @@ using System.Collections;
 
 namespace WpfSample.ViewModels
 {
-    class MainWindowViewModel : ViewModelBase, INotifyDataErrorInfo
+    class MainWindowViewModel : ViewModelBase
     {
         private ArtistsModel _artists = new ArtistsModel();
 
@@ -21,25 +21,23 @@ namespace WpfSample.ViewModels
         /// <summary>
         /// 選択されたアーティストのID。デフォルトは0番目
         /// </summary>
-        public int SelectedArtistId => _artists.SelectedArtistId;
+        public int SelectedArtistId {
+            get { return _artists.SelectedArtistId; }
+            set { _artists.SelectedArtistId = value; }
+        }
 
         /// <summary>
         /// 追加するアーティストの名前
         /// </summary>
-        public string ArtistName => _artists.ArtistName;
+        public string ArtistName {
+            get { return _artists.ArtistName; }
+            set { _artists.ArtistName = value; }
+        }
 
         /// <summary>
         /// アーティスト追加コマンド
         /// </summary>
         public ICommand AddArtistCommand { get; private set; }
-
-        public bool HasErrors
-        {
-            get
-            {
-                return ((INotifyDataErrorInfo)_artists).HasErrors;
-            }
-        }
 
         private bool CanExecuteAddArtist(object state)
         {

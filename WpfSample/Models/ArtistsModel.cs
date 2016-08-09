@@ -28,7 +28,7 @@ namespace WpfSample.Models
             {
                 _artistName = value;
                 ValidateProperty(value);
-                RaisePropertyChanged();
+                //RaisePropertyChanged();
             }
         }
 

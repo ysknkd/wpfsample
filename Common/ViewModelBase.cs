@@ -8,7 +8,7 @@ using System.Windows.Input;
 
 namespace Common
 {
-    public abstract class ViewModelBase : INotifyPropertyChanged
+    public abstract class ViewModelBase : INotifyPropertyChanged, INotifyDataErrorInfo
     {
         #region == default properties ==
         public ModelBase Model;
@@ -41,6 +41,13 @@ namespace Common
             }
 
             return errorsForView.ToList().AsReadOnly();
+        }
+        public bool HasErrors
+        {
+            get
+            {
+                return ((INotifyDataErrorInfo)Model).HasErrors;
+            }
         }
         #endregion
 
@@ -97,6 +104,7 @@ namespace Common
 
         #region == implement for Resources ==
         public Func<string, object> FindResources;
+
 
         public string Resources(string key)
         {
