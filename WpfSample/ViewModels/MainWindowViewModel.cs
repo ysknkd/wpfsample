@@ -21,25 +21,12 @@ namespace WpfSample.ViewModels
         /// <summary>
         /// 選択されたアーティストのID。デフォルトは0番目
         /// </summary>
-        public int SelectedArtistId {
-            get { return _artists.SelectedArtistId; }
-            set
-            {
-                _artists.SelectedArtistId = value;
-                RaisePropertyChanged(); // Viewへの変更通知
-            }
-        }
+        public int SelectedArtistId => _artists.SelectedArtistId;
 
         /// <summary>
         /// 追加するアーティストの名前
         /// </summary>
-        public string ArtistName {
-            get { return _artists.ArtistName; }
-            set {
-                _artists.ArtistName = value;
-                RaisePropertyChanged();
-            }
-        }
+        public string ArtistName => _artists.ArtistName;
 
         /// <summary>
         /// アーティスト追加コマンド
@@ -86,6 +73,11 @@ namespace WpfSample.ViewModels
         {
             Model = _artists;
             AddArtistCommand = CreateCommand(ExecuteAddArtist, CanExecuteAddArtist);
+
+            _artists.PropertyChanged += (sender, e) =>
+            {
+                RaisePropertyChanged(e.PropertyName);
+            };
         }
     }
 }
