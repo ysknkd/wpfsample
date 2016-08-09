@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace Common
 {
@@ -32,23 +32,6 @@ namespace Common
         }
 
         /// <summary>
-        /// 文字列が英数字のみで、かつ最大長以下であるかを検証します。
-        /// 最大長以上の文字列である場合は最後の文字を削除します。
-        /// 英数字以外の文字列が含まれている場合は、削除した上で検証後の文字列として返却します。
-        /// </summary>
-        /// <param name="input">検証値</param>
-        /// <param name="maxLength">最大長</param>
-        /// <param name="output">検証済みの値</param>
-        /// <returns>文字列が英数字のみで、かつ最大長以下である場合は、true。それ以外は、false</returns>
-        static public bool IsAlphanumericWithMaxLength(string input, int maxLength, out string output)
-        {
-            bool isOverflow = (input.Length > maxLength);
-
-            return IsAlphanumeric(isOverflow ? input.Substring(0, maxLength) : input, out output)
-                && ! isOverflow;
-        }
-
-        /// <summary>
         /// 文字列が数字のみで構成されているか検証します。
         /// 数字以外の文字列が含まれている場合は、削除した上で検証後の文字列として返却します。
         /// </summary>
@@ -64,22 +47,5 @@ namespace Common
 
             return result;
         }
-
-        /// <summary>
-        /// 文字列が数字のみで、かつ最大長以下であるかを検証します。
-        /// 最大長以上の文字列である場合は最後の文字を削除します。
-        /// 数字以外の文字列が含まれている場合は、削除した上で検証後の文字列として返却します。
-        /// </summary>
-        /// <param name="input">検証値</param>
-        /// <param name="output">検証済みの値</param>
-        /// <returns>文字列が数字のみで、かつ最大長以下である場合は、true。それ以外は、false</returns>
-        static public bool IsNumericWithMaxLength(string input, int maxLength, out string output)
-        {
-            bool isOverflow = (input.Length > maxLength);
-
-            return IsNumeric(isOverflow ? input.Substring(0, maxLength) : input, out output)
-                && ! isOverflow;
-        }
-
     }
 }

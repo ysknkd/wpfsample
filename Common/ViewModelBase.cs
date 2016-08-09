@@ -42,6 +42,7 @@ namespace Common
 
             return errorsForView.ToList().AsReadOnly();
         }
+
         public bool HasErrors
         {
             get

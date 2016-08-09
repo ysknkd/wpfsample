@@ -28,7 +28,7 @@ namespace WpfSample.Models
             {
                 _artistName = value;
                 ValidateProperty(value);
-                //RaisePropertyChanged();
+                RaisePropertyChanged();
             }
         }
 
@@ -41,7 +41,7 @@ namespace WpfSample.Models
                     string input = (string)value;
 
                     if (input.Length > 0
-                        && ! Validator.IsAlphanumericWithMaxLength((string)value, 4, out validated))
+                        && ! Validator.IsAlphanumeric((string)value, out validated))
                     {
                         AddError(nameof(ArtistName), "MSG_ERROR_ARTIST_ALPHANUMERIC");
                     }
