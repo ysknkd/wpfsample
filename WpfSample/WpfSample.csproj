@@ -56,7 +56,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Models\ArtistsModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -71,7 +70,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="MainWindowModel.cs" />
+    <Compile Include="MainWindowViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -99,9 +99,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CommonResources\CommonResources.csproj">
-      <Project>{ded8396c-689e-49e2-b1eb-25a3340f709a}</Project>
-      <Name>CommonResources</Name>
+    <ProjectReference Include="..\Artist\Artist.csproj">
+      <Project>{63360fca-70e3-456b-bef2-a7d1d3cd47eb}</Project>
+      <Name>Artist</Name>
     </ProjectReference>
     <ProjectReference Include="..\Common\Common.csproj">
       <Project>{f01f3c23-03c0-4767-9f14-5b12314a2020}</Project>

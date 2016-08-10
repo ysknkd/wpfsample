@@ -1,0 +1,102 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:CommonResources">
+    
+    <!-- コントール部の背景色 -->
+    <Style TargetType="Grid">
+        <Setter Property="Background" Value="#FFDDDDDD" />
+    </Style>
+    
+    <!-- テキストボックスのスタイル -->
+    <ControlTemplate x:Key="ValidationErrorTemplate">
+        <StackPanel Orientation="Vertical">
+            <TextBlock Foreground="#FFFFFFFF" Background="Red" Padding="4" FontSize="12" Text="{Binding AdornedElement.(Validation.Errors).CurrentItem.ErrorContent, ElementName=adorned}" />
+            <AdornedElementPlaceholder Margin="0, 0, 0, 0" x:Name="adorned">
+                <Border BorderBrush="Red" BorderThickness="2" />
+            </AdornedElementPlaceholder>
+        </StackPanel>
+    </ControlTemplate>
+   
+    <Style TargetType="TextBox">
+        <Setter Property="Padding" Value="4, 4, 0, 0" />
+        <Style.Triggers>
+            <Trigger Property="Validation.HasError" Value="True">
+                <!--
+                <Setter Property="ToolTip"
+                        Value="{Binding Path=(Validation.Errors).CurrentItem.ErrorContent, RelativeSource={RelativeSource Self}}" />
+                -->
+                <Setter Property="Background" Value="Pink" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    
+    <!-- ボタンの共通スタイル -->
+    <Style TargetType="Button">
+        <Setter Property="TextBlock.TextAlignment" Value="Center" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border CornerRadius="4" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1">
+                        <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="True">
+                            <Setter Property="BorderBrush" Value="#FF999999" />
+                            <Setter Property="Background" Value="#FFF0F0F0" />
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="BorderBrush" Value="#FF999999" />
+                            <Setter Property="Background" Value="#FFFFFFFF" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="BorderBrush" Value="#FF999999" />
+                            <Setter Property="Background" Value="#FFF0F0F0" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="HeaderContainer" TargetType="Grid">
+        <Setter Property="Background" Value="#FFFFFFFF" />
+    </Style> 
+    
+    <Style x:Key="HeaderTitle" TargetType="TextBlock">
+        <Setter Property="Height" Value="32" />
+        <Setter Property="Padding" Value="4" />
+        <Setter Property="FontSize" Value="16" />
+    </Style>
+    
+    <!-- ヘッダ用のボタン -->
+    <Style x:Key="HeaderButton" TargetType="Button">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border CornerRadius="4" Width="96" MaxWidth="128" Margin="0, 0, 4, 0" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1">
+                        <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <!-- 有効な状態(押下できる状態) -->
+                        <Trigger Property="IsEnabled" Value="True">
+                            <!-- αRGB -->
+                            <Setter Property="BorderBrush" Value="#00999999" /> <!-- 枠線を透過させる -->
+                            <Setter Property="Background" Value="#00F0F0F0" /> <!-- 背景を透過させる -->
+                        </Trigger>
+                        <!-- マウスオーバー -->
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="BorderBrush" Value="#FF999999" />
+                            <Setter Property="Background" Value="#FFF0F0F0" />
+                        </Trigger>
+                        <!-- 押下時 -->
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="BorderBrush" Value="#FF999999" />
+                            <Setter Property="Background" Value="#FFF0F0F0" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

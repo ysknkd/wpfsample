@@ -4,13 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfSample"
-        xmlns:VM="clr-namespace:WpfSample.ViewModels"
+        xmlns:vm="clr-namespace:WpfSample"
         mc:Ignorable="d"
         Title="MainWindow" Height="354" Width="576">
     <!-- データバインディング -->
-    <Window.DataContext>
-        <VM:MainWindowViewModel />
-    </Window.DataContext>
+    <!-- タブコントロールためにViewModelがViewを保持する -->
+    <!-- コードビハインドでViewModelを初期化する -->
 
     <!-- リソースの読み込み -->
     <Window.Resources>
@@ -19,88 +18,37 @@
         <ResourceDictionary>
             <!-- MergedDictionaries タグ内に記載しないと複数読み込めない -->
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/CommonResources;component/Themes/Generic.xaml" />
-                <ResourceDictionary Source="/CommonResources;component/TextResources.xaml" />
+                <ResourceDictionary Source="/Common;component/Themes/Generic.xaml" />
+                <ResourceDictionary Source="/Common;component/Resources/TextResources.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
 
-    <!-- 要素のレイアウト -->
-    <Grid Margin="0,0,0,0">
-        <Button x:Name="button"
-    		Content="{StaticResource LABEL_SEARCH}"
-    		HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="114" Margin="10,10,0,0"/>
-        <Separator HorizontalAlignment="Left" Height="26" Margin="10,45,0,0" VerticalAlignment="Top" Width="488"/>
-        <DatePicker HorizontalAlignment="Left" Margin="10,71,0,0" VerticalAlignment="Top" Height="42" Width="160"/>
-        <!-- Add Artist -->
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="80" Margin="10,147,0,0" Stroke="Black" VerticalAlignment="Top" Width="512"/>
-        <Label x:Name="label"
-            Content="{StaticResource LABEL_ARTISTS}"
-            HorizontalAlignment="Left" Margin="24,149,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="artistName"
-            InputMethod.IsInputMethodEnabled="False"
-            Text="{Binding Path=ArtistName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-            Validation.ErrorTemplate="{StaticResource ValidationErrorTemplate}"
-            MaxLength="12"
-            HorizontalAlignment="Left" Margin="23,180,0,0" Width="159" Height="30" VerticalAlignment="Top"/>
-        <Button x:Name="btnAddArtist"
-    		Content="{StaticResource LABEL_ADD}"
-            Command="{Binding AddArtistCommand}"
-    		HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="114" Margin="187,180,0,0"/>
-        <!-- Test of ComboBox -->
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="80" Margin="10,232,0,0" Stroke="Black" VerticalAlignment="Top" Width="512"/>
-        <ComboBox x:Name="comboBox"
-    		ItemsSource="{Binding Artists}"
-    		SelectedIndex="{Binding SelectedArtistId, Mode=TwoWay}"
-    		MaxDropDownHeight="64"
-    		DisplayMemberPath="Name"
-    		SelectedValuePath="Id"
-    		HorizontalAlignment="Left"
-    		Margin="24,272,0,0"
-    		VerticalAlignment="Top"
-    		Width="158"
-    		Height="26" />
-        <ComboBox x:Name="comboBoxCustomize"
-    		ItemsSource="{Binding Artists}"
-    		SelectedIndex="{Binding SelectedArtistId, Mode=TwoWay}"
-    		SelectedValuePath="Id"
-    		HorizontalAlignment="Left"
-    		Margin="187,272,0,0"
-    		VerticalAlignment="Top"
-    		Width="158"
-    		Height="26">
-            <ComboBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding Id}" />
-                        <TextBlock Text=" : " />
-                        <TextBlock Text="{Binding Name}" />
-                    </StackPanel>
-                </DataTemplate>
-            </ComboBox.ItemTemplate>
-        </ComboBox>
-        <Label x:Name="label1" Content="{StaticResource ResourceKey=LABEL_TEST_OF_COMBOBOX}" HorizontalAlignment="Left" Margin="24,241,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="comboBoxConverter"
-        	ItemsSource="{Binding Artists}"
-        	SelectedIndex="{Binding SelectedArtistId, Mode=TwoWay}"
-        	SelectedValuePath="Id"
-        	HorizontalAlignment="Left"
-        	Margin="350,272,0,0"
-        	VerticalAlignment="Top"
-        	Width="158"
-        	Height="26">
-            <ComboBox.ItemTemplate>
-                <DataTemplate>
-                    <TextBlock>
-                        <TextBlock.Text>
-                            <MultiBinding StringFormat="{}{0} : {1}">
-                                <Binding Path="Id" />
-                                <Binding Path="Name" />
-                            </MultiBinding>
-                        </TextBlock.Text>
-                    </TextBlock>
-                </DataTemplate>
-            </ComboBox.ItemTemplate>
-        </ComboBox>
-    </Grid>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="48" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="4">
+                <TextBlock Text="{StaticResource LABEL_TAB_TEST}" Padding="4, 12, 8, 0" />
+                <Button Content="{StaticResource LABEL_ADDTAB}" Command="{Binding AddTabCommand}" Width="120" Height="24" />
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1">
+            <TabControl x:Name="TabControl" ItemsSource="{Binding TabItems, Mode=TwoWay}" TabStripPlacement="Bottom">
+                <TabControl.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding TabName}" />
+                    </DataTemplate>
+                </TabControl.ItemTemplate>
+                <TabControl.ContentTemplate>
+                    <DataTemplate>
+                        <ContentControl Content="{Binding TabContent}" />
+                    </DataTemplate>
+                </TabControl.ContentTemplate>
+            </TabControl>
+        </Grid>
+    </Grid> 
+    
 </Window>

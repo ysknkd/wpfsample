@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -15,18 +14,19 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WpfSample
+namespace Artist
 {
     /// <summary>
-    /// MainWindow.xaml の相互作用ロジック
+    /// ArtistView.xaml の相互作用ロジック
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ArtistView : UserControl
     {
-        public MainWindow()
+        public ArtistView()
         {
             InitializeComponent();
 
-            DataContext = new MainWindowViewModel(this);
+            var viewModel = (ViewModelBase)DataContext;
+            viewModel.FindResources = FindResource;
         }
     }
 }

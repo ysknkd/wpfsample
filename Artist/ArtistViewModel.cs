@@ -1,15 +1,16 @@
 ﻿using Common;
+using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
-using WpfSample.Models;
-using System;
-using System.Collections;
 
-namespace WpfSample.ViewModels
+namespace Artist
 {
-    class MainWindowViewModel : ViewModelBase
+    class ArtistViewModel : ViewModelBase
     {
         private ArtistsModel _artists = new ArtistsModel();
 
@@ -67,7 +68,7 @@ namespace WpfSample.ViewModels
         /// <summary>
         /// コンストラクタ
         /// </summary>
-        public MainWindowViewModel()
+        public ArtistViewModel()
         {
             Model = _artists;
             AddArtistCommand = CreateCommand(ExecuteAddArtist, CanExecuteAddArtist);

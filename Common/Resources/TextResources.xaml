@@ -1,0 +1,24 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:CommonResources"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <!-- ボタン -->
+    <system:String x:Key="LABEL_SEARCH">検索</system:String>
+    <system:String x:Key="LABEL_ADD">追加</system:String>
+    <system:String x:Key="LABEL_ADDTAB">タブを追加</system:String>
+    <system:String x:Key="LABEL_BUTTON_DUMMY">ダミーボタン</system:String>
+   
+    <!-- ラベル -->
+    <system:String x:Key="LABEL_TAB_TEST">タブのテスト</system:String>
+    <system:String x:Key="LABEL_ARTIST_TITLE">アーティスト</system:String>
+    <system:String x:Key="LABEL_ARTISTS">アーティスト名</system:String>
+    <system:String x:Key="LABEL_TEST_OF_COMBOBOX">コンボボックスのテスト</system:String>
+    
+    <!-- メッセージ -->
+    <system:String x:Key="MSG_DIALOG_TITLE_CONFIRM">確認</system:String>
+    <system:String x:Key="MSG_DIALOG_TITLE_ERROR">エラー</system:String>
+    <system:String x:Key="MSG_DIALOG_REQUIRE">必須項目が入力されていません</system:String>
+    <system:String x:Key="MSG_DIALOG_ADDED">を追加しました</system:String>
+    
+    <system:String x:Key="MSG_ERROR_ARTIST_ALPHANUMERIC">英数字で入力してください</system:String>
+</ResourceDictionary>

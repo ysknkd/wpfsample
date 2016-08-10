@@ -1,0 +1,126 @@
+﻿<UserControl x:Class="Artist.ArtistView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Artist"
+             xmlns:vm="clr-namespace:Artist"
+             mc:Ignorable="d" 
+             d:DesignHeight="480" d:DesignWidth="640">
+    <UserControl.DataContext>
+        <vm:ArtistViewModel />
+    </UserControl.DataContext>
+
+    <!-- リソースの読み込み -->
+    <UserControl.Resources>
+        <!-- 外部DLLからの読み込み -->
+        <!-- @see http://garafu.blogspot.jp/2015/12/wpf-resouce-dll.html -->
+        <ResourceDictionary>
+            <!-- MergedDictionaries タグ内に記載しないと複数読み込めない -->
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Common;component/Themes/Generic.xaml" />
+                <ResourceDictionary Source="/Common;component/Resources/TextResources.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <!-- 要素のレイアウト -->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="32" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="128" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="96" MaxWidth="128" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" Style="{StaticResource HeaderContainer}">
+                <TextBlock Style="{StaticResource HeaderTitle}" Text="{StaticResource LABEL_ARTIST_TITLE}" />
+            </Grid>
+            <Grid Grid.Column="1" Style="{StaticResource HeaderContainer}">
+                <StackPanel Orientation="Horizontal">
+                    <Button Style="{StaticResource HeaderButton}" Content="{StaticResource LABEL_BUTTON_DUMMY}" />
+                    <Button Style="{StaticResource HeaderButton}" Content="{StaticResource LABEL_BUTTON_DUMMY}" />
+                    <Button Style="{StaticResource HeaderButton}" Content="{StaticResource LABEL_BUTTON_DUMMY}" />
+                    <Button Style="{StaticResource HeaderButton}" Content="{StaticResource LABEL_BUTTON_DUMMY}" />
+                </StackPanel>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1">
+            <!-- Maring は 左から 上 右 下 の順 -->
+            <GroupBox Margin="0" Width="320" Height="120" Header="{StaticResource LABEL_ARTISTS}">
+                <StackPanel Orientation="Horizontal" Margin="12">
+                    <TextBox x:Name="artistName"
+                        InputMethod.IsInputMethodEnabled="False"
+                        Text="{Binding ArtistName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        Validation.ErrorTemplate="{StaticResource ValidationErrorTemplate}"
+                        MaxLength="12"
+                        HorizontalAlignment="Left" Width="159" Height="30" VerticalAlignment="Top"/>
+                    <Button x:Name="btnAddArtist"
+                        Content="{StaticResource LABEL_ADD}"
+                        Command="{Binding AddArtistCommand}"
+                        HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="114" />
+                </StackPanel>
+            </GroupBox>
+        </Grid>
+        <Grid Grid.Row="2">
+            <GroupBox Width="540" Height="96" Header="{StaticResource LABEL_TEST_OF_COMBOBOX}">
+                <StackPanel Orientation="Horizontal" Margin="12">
+                    <ComboBox x:Name="comboBox"
+                        ItemsSource="{Binding Artists}"
+                        SelectedIndex="{Binding SelectedArtistId, Mode=TwoWay}"
+                        MaxDropDownHeight="64"
+                        DisplayMemberPath="Name"
+                        SelectedValuePath="Id"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Width="158"
+                        Height="26" />
+                    <ComboBox x:Name="comboBoxCustomize"
+                        ItemsSource="{Binding Artists}"
+                        SelectedIndex="{Binding SelectedArtistId, Mode=TwoWay}"
+                        SelectedValuePath="Id"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Width="158"
+                        Height="26">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Id}" />
+                                    <TextBlock Text=" : " />
+                                    <TextBlock Text="{Binding Name}" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <ComboBox x:Name="comboBoxConverter"
+                        ItemsSource="{Binding Artists}"
+                        SelectedIndex="{Binding SelectedArtistId, Mode=TwoWay}"
+                        SelectedValuePath="Id"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Width="158"
+                        Height="26">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock>
+                                    <TextBlock.Text>
+                                        <MultiBinding StringFormat="{}{0} : {1}">
+                                            <Binding Path="Id" />
+                                            <Binding Path="Name" />
+                                        </MultiBinding>
+                                    </TextBlock.Text>
+                                </TextBlock>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </StackPanel>
+            </GroupBox>
+            <!-- Test of ComboBox -->
+        </Grid>
+    </Grid>
+
+</UserControl>

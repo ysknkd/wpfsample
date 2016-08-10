@@ -4,8 +4,14 @@ using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace WpfSample.Models
+namespace Artist
 {
+    public class Artist
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+    }
+
     class ArtistsModel : ModelBase
     {
         public ObservableCollection<Artist> Artists { get; private set; } = new ObservableCollection<Artist>();

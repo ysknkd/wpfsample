@@ -2,12 +2,6 @@
 
 namespace Common
 {
-    public class Artist
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-    }
-
     public enum TaskResultType
     {
         SUCCEEDED,
