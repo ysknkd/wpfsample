@@ -1,0 +1,12 @@
+C:\Users\yosuke\Documents\Visual Studio 2015\Projects\WpfSample\Common\bin\Debug\Common.dll
+C:\Users\yosuke\Documents\Visual Studio 2015\Projects\WpfSample\Common\bin\Debug\Common.pdb
+C:\Users\yosuke\Documents\Visual Studio 2015\Projects\WpfSample\Common\obj\Debug\Common.Properties.Resources.resources
+C:\Users\yosuke\Documents\Visual Studio 2015\Projects\WpfSample\Common\obj\Debug\Common.csproj.GenerateResource.Cache
+C:\Users\yosuke\Documents\Visual Studio 2015\Projects\WpfSample\Common\obj\Debug\Common.dll
+C:\Users\yosuke\Documents\Visual Studio 2015\Projects\WpfSample\Common\obj\Debug\Common.pdb
+C:\Users\yosuke\Documents\Visual Studio 2015\Projects\WpfSample\Common\obj\Debug\Common_MarkupCompile.cache
+C:\Users\yosuke\Documents\Visual Studio 2015\Projects\WpfSample\Common\obj\Debug\Common_MarkupCompile.lref
+C:\Users\yosuke\Documents\Visual Studio 2015\Projects\WpfSample\Common\obj\Debug\Themes\Generic.baml
+C:\Users\yosuke\Documents\Visual Studio 2015\Projects\WpfSample\Common\obj\Debug\Resources\TextResources.baml
+C:\Users\yosuke\Documents\Visual Studio 2015\Projects\WpfSample\Common\obj\Debug\Common.g.resources
+C:\Users\yosuke\Documents\Visual Studio 2015\Projects\WpfSample\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache

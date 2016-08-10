@@ -1,0 +1,15 @@
+C:\Users\yosuke\Documents\Visual Studio 2015\Projects\WpfSample\Artist\obj\Debug\Artist.csprojResolveAssemblyReference.cache
+C:\Users\yosuke\Documents\Visual Studio 2015\Projects\WpfSample\Artist\obj\Debug\ArtistView.g.cs
+C:\Users\yosuke\Documents\Visual Studio 2015\Projects\WpfSample\Artist\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\yosuke\Documents\Visual Studio 2015\Projects\WpfSample\Artist\obj\Debug\Artist_MarkupCompile.cache
+C:\Users\yosuke\Documents\Visual Studio 2015\Projects\WpfSample\Artist\obj\Debug\Artist_MarkupCompile.lref
+C:\Users\yosuke\Documents\Visual Studio 2015\Projects\WpfSample\Artist\bin\Debug\Artist.dll
+C:\Users\yosuke\Documents\Visual Studio 2015\Projects\WpfSample\Artist\bin\Debug\Artist.pdb
+C:\Users\yosuke\Documents\Visual Studio 2015\Projects\WpfSample\Artist\bin\Debug\Common.dll
+C:\Users\yosuke\Documents\Visual Studio 2015\Projects\WpfSample\Artist\bin\Debug\Common.pdb
+C:\Users\yosuke\Documents\Visual Studio 2015\Projects\WpfSample\Artist\obj\Debug\ArtistView.baml
+C:\Users\yosuke\Documents\Visual Studio 2015\Projects\WpfSample\Artist\obj\Debug\Artist.g.resources
+C:\Users\yosuke\Documents\Visual Studio 2015\Projects\WpfSample\Artist\obj\Debug\Artist.Properties.Resources.resources
+C:\Users\yosuke\Documents\Visual Studio 2015\Projects\WpfSample\Artist\obj\Debug\Artist.csproj.GenerateResource.Cache
+C:\Users\yosuke\Documents\Visual Studio 2015\Projects\WpfSample\Artist\obj\Debug\Artist.dll
+C:\Users\yosuke\Documents\Visual Studio 2015\Projects\WpfSample\Artist\obj\Debug\Artist.pdb

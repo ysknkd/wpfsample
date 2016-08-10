@@ -1,0 +1,16 @@
+c:\users\yosuke\documents\visual studio 2015\Projects\WpfSample\WpfSample\bin\Debug\WpfSample.exe.config
+c:\users\yosuke\documents\visual studio 2015\Projects\WpfSample\WpfSample\bin\Debug\WpfSample.exe
+c:\users\yosuke\documents\visual studio 2015\Projects\WpfSample\WpfSample\bin\Debug\WpfSample.pdb
+c:\users\yosuke\documents\visual studio 2015\Projects\WpfSample\WpfSample\obj\Debug\MainWindow.g.cs
+c:\users\yosuke\documents\visual studio 2015\Projects\WpfSample\WpfSample\obj\Debug\App.g.cs
+c:\users\yosuke\documents\visual studio 2015\Projects\WpfSample\WpfSample\obj\Debug\WpfSample_MarkupCompile.cache
+c:\users\yosuke\documents\visual studio 2015\Projects\WpfSample\WpfSample\obj\Debug\WpfSample_MarkupCompile.lref
+c:\users\yosuke\documents\visual studio 2015\Projects\WpfSample\WpfSample\obj\Debug\MainWindow.baml
+c:\users\yosuke\documents\visual studio 2015\Projects\WpfSample\WpfSample\obj\Debug\StyleSample.baml
+c:\users\yosuke\documents\visual studio 2015\Projects\WpfSample\WpfSample\obj\Debug\WpfSample.g.resources
+c:\users\yosuke\documents\visual studio 2015\Projects\WpfSample\WpfSample\obj\Debug\WpfSample.Properties.Resources.resources
+c:\users\yosuke\documents\visual studio 2015\Projects\WpfSample\WpfSample\obj\Debug\WpfSample.csproj.GenerateResource.Cache
+c:\users\yosuke\documents\visual studio 2015\Projects\WpfSample\WpfSample\obj\Debug\WpfSample.exe
+c:\users\yosuke\documents\visual studio 2015\Projects\WpfSample\WpfSample\obj\Debug\WpfSample.pdb
+C:\Users\yosuke\Documents\Visual Studio 2015\Projects\WpfSample\WpfSample\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\yosuke\Documents\Visual Studio 2015\Projects\WpfSample\WpfSample\obj\Debug\WpfSample.csprojResolveAssemblyReference.cache
