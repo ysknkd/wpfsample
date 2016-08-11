@@ -4,5 +4,8 @@
              xmlns:local="clr-namespace:WpfSample"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
+        <Style x:Key="WindowStyle" TargetType="{x:Type Control}">
+            <Setter Property="FontFamily" Value="Meiryo UI" />
+        </Style>
     </Application.Resources>
 </Application>

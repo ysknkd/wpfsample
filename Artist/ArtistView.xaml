@@ -6,7 +6,8 @@
              xmlns:local="clr-namespace:Artist"
              xmlns:vm="clr-namespace:Artist"
              mc:Ignorable="d" 
-             d:DesignHeight="480" d:DesignWidth="640">
+             d:DesignHeight="480" d:DesignWidth="960"
+             >
     <UserControl.DataContext>
         <vm:ArtistViewModel />
     </UserControl.DataContext>
@@ -25,38 +26,40 @@
     </UserControl.Resources>
 
     <!-- 要素のレイアウト -->
-    <Grid>
+    <Grid Style="{StaticResource Container}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="32" />
+            <RowDefinition Height="48" />
+            <RowDefinition MinHeight="48" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="128" />
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="96" MaxWidth="128" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-            <Grid Grid.Column="0" Style="{StaticResource HeaderContainer}">
+        <!-- ヘッダ -->
+        <Border Grid.Row="0" Style="{StaticResource HeaderContainer}">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                 <TextBlock Style="{StaticResource HeaderTitle}" Text="{StaticResource LABEL_ARTIST_TITLE}" />
-            </Grid>
-            <Grid Grid.Column="1" Style="{StaticResource HeaderContainer}">
-                <StackPanel Orientation="Horizontal">
-                    <Button Style="{StaticResource HeaderButton}" Content="{StaticResource LABEL_BUTTON_DUMMY}" />
-                    <Button Style="{StaticResource HeaderButton}" Content="{StaticResource LABEL_BUTTON_DUMMY}" />
-                    <Button Style="{StaticResource HeaderButton}" Content="{StaticResource LABEL_BUTTON_DUMMY}" />
-                    <Button Style="{StaticResource HeaderButton}" Content="{StaticResource LABEL_BUTTON_DUMMY}" />
-                </StackPanel>
-            </Grid>
+                <Button Style="{StaticResource HeaderButton}" Content="{StaticResource LABEL_BUTTON_DUMMY}" />
+                <Button Style="{StaticResource HeaderButton}" Content="{StaticResource LABEL_BUTTON_DUMMY}" />
+                <Button Style="{StaticResource HeaderButton}" Content="{StaticResource LABEL_BUTTON_DUMMY}" />
+                <Button Style="{StaticResource HeaderButton}" Content="{StaticResource LABEL_BUTTON_DUMMY}" />
+            </StackPanel>
+        </Border>
+        <!-- コントロール部 -->
+        <Grid Grid.Row="1" Style="{StaticResource ControlContainer}">
+            <Canvas>
+                <TextBlock Text="{StaticResource LABEL_DUMMY}" Canvas.Left="22" Canvas.Top="16" />
+                <TextBox Canvas.Left="111" Canvas.Top="10" Width="120"></TextBox>
+            </Canvas>
         </Grid>
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="2">
             <!-- Maring は 左から 上 右 下 の順 -->
             <GroupBox Margin="0" Width="320" Height="120" Header="{StaticResource LABEL_ARTISTS}">
                 <StackPanel Orientation="Horizontal" Margin="12">
+                    <!-- InputScopeはタッチキーボードのデフォルトレイアウトを指定できる。`EmailSmtpAddress`, `TelephoneNumber`, `Url`などが指定可能。 -->
+                    <!-- Binding のオプションで `UpdateSourceTrigger` を `PropertyChanged` に設定することで、入力中のイベントをBinding対象のSetterで受信できる -->
                     <TextBox x:Name="artistName"
                         InputMethod.IsInputMethodEnabled="False"
+                        InputScope="Default"
                         Text="{Binding ArtistName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                         Validation.ErrorTemplate="{StaticResource ValidationErrorTemplate}"
-                        MaxLength="12"
                         HorizontalAlignment="Left" Width="159" Height="30" VerticalAlignment="Top"/>
                     <Button x:Name="btnAddArtist"
                         Content="{StaticResource LABEL_ADD}"
@@ -64,8 +67,6 @@
                         HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="114" />
                 </StackPanel>
             </GroupBox>
-        </Grid>
-        <Grid Grid.Row="2">
             <GroupBox Width="540" Height="96" Header="{StaticResource LABEL_TEST_OF_COMBOBOX}">
                 <StackPanel Orientation="Horizontal" Margin="12">
                     <ComboBox x:Name="comboBox"

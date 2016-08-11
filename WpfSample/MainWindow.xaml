@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:WpfSample"
         xmlns:vm="clr-namespace:WpfSample"
         mc:Ignorable="d"
-        Title="MainWindow" Height="354" Width="576">
+        Style="{StaticResource WindowStyle}"
+        Title="MainWindow" Height="800" Width="1280">
     <!-- データバインディング -->
     <!-- タブコントロールためにViewModelがViewを保持する -->
     <!-- コードビハインドでViewModelを初期化する -->
@@ -26,29 +27,33 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="48" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="56" />
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="4">
-                <TextBlock Text="{StaticResource LABEL_TAB_TEST}" Padding="4, 12, 8, 0" />
+        <Border Grid.Row="0" Style="{StaticResource MenuContainer}">
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Left">
+                <TextBlock Text="{StaticResource LABEL_TAB_TEST}" Padding="8, 20" Width="128" />
                 <Button Content="{StaticResource LABEL_ADDTAB}" Command="{Binding AddTabCommand}" Width="120" Height="24" />
             </StackPanel>
-        </Grid>
-        <Grid Grid.Row="1">
-            <TabControl x:Name="TabControl" ItemsSource="{Binding TabItems, Mode=TwoWay}" TabStripPlacement="Bottom">
-                <TabControl.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock Text="{Binding TabName}" />
-                    </DataTemplate>
-                </TabControl.ItemTemplate>
-                <TabControl.ContentTemplate>
-                    <DataTemplate>
-                        <ContentControl Content="{Binding TabContent}" />
-                    </DataTemplate>
-                </TabControl.ContentTemplate>
-            </TabControl>
-        </Grid>
+        </Border>
+        <TabControl x:Name="TabControl"
+                    Grid.Row="1"
+                    Margin="0"
+                    Width="1280"
+                    ItemsSource="{Binding TabItems, Mode=TwoWay}"
+                    TabStripPlacement="Bottom">
+            <TabControl.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding TabName}" />
+                </DataTemplate>
+            </TabControl.ItemTemplate>
+            <TabControl.ContentTemplate>
+                <DataTemplate>
+                    <ContentControl Content="{Binding TabContent}" />
+                </DataTemplate>
+            </TabControl.ContentTemplate>
+        </TabControl>
     </Grid> 
     
 </Window>

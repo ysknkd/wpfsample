@@ -53,6 +53,7 @@ namespace WpfSample
             item.TabContent = new Artist.ArtistView();
 
             TabItems.Add(item);
+            _mainWindow.TabControl.SelectedItem = item;
         }
     }
 }

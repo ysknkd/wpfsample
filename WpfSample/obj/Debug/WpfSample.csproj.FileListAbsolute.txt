@@ -16,3 +16,4 @@ C:\Users\yosuke\Documents\Visual Studio 2015\Projects\WpfSample\WpfSample\obj\De
 C:\Users\yosuke\Documents\Visual Studio 2015\Projects\WpfSample\WpfSample\obj\Debug\WpfSample.pdb
 C:\Users\yosuke\Documents\Visual Studio 2015\Projects\WpfSample\WpfSample\bin\Debug\Artist.dll
 C:\Users\yosuke\Documents\Visual Studio 2015\Projects\WpfSample\WpfSample\bin\Debug\Artist.pdb
+C:\Users\yosuke\Documents\Visual Studio 2015\Projects\WpfSample\WpfSample\obj\Debug\App.baml
