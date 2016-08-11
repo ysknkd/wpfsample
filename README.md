@@ -39,14 +39,14 @@ WPFでリソースを利用する方法を記載します。
 それぞれ以下を参照のこと。
 
  * XAMLのスタイル
-   * `CommonResources/Themes/Generic.xaml`
+     * `CommonResources/Themes/Generic.xaml`
  * 文字列リソース
-   * `CommonResources/TextResources.xaml`
+     * `CommonResources/TextResources.xaml`
 
 ### 別のDLLからリソースを読み込んで、XAML内で利用する方法
 リソースを使用したいViewのXAMLに以下の記述を追加します。
 
-```xml
+```xaml
     <!-- リソースの読み込み -->
     <Window.Resources>
         <!-- 外部DLLからの読み込み -->
@@ -61,10 +61,9 @@ WPFでリソースを利用する方法を記載します。
     </Window.Resources>
 ```
 
-TextResourcesには、`LABEL_SEARCH`でラベルのリソースが定義されています。
-次のように記述することで、外部から読み込んだリソースを使用できます。
+`TextResources.xaml`には、`LABEL_SEARCH`で文字列リソースが定義されています。View(XAML)からは、`StaticResource`として`LABEL_SEARCH`を参照できます。
 
-```xml
+```xaml
         <Button x:Name="button"
     		Content="{StaticResource LABEL_SEARCH}"
     		HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="114" Margin="10,10,0,0"/>
@@ -92,13 +91,15 @@ XAMLで読み込んだリソースは、Viewには反映されていますが、
     viewModel.FindResources = FindResource
 ```
 
+`FindResource`にリソースのキーを与えると、指定したキーに対応する値を取得できます。
+
 ## バリデーションの実施
 XAML側での入力制限とModelによるバリデーションを検討した結果を以下に記載します。
 
 ### XAMLによる入力制限
 入力の桁数については、XAML側で簡単に実施することができます。
 ただし、入力可能文字を限定するためにはロジックを書かなくてはなりません。
-IMEの変更を制限することはできますが、コピペで入力される文字を制限することまではできません。
+~~IMEの変更を制限することはできますが、コピペで入力される文字を制限することまではできません。~~
 
 ### Modelによるバリデーション
 ViewModelからModelに対して操作を行った際に、Modelでバリデーションを実施することを検討してみました。
