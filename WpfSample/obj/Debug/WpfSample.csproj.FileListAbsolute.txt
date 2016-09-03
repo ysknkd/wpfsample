@@ -17,3 +17,44 @@ C:\Users\yosuke\Documents\Visual Studio 2015\Projects\WpfSample\WpfSample\obj\De
 C:\Users\yosuke\Documents\Visual Studio 2015\Projects\WpfSample\WpfSample\bin\Debug\Artist.dll
 C:\Users\yosuke\Documents\Visual Studio 2015\Projects\WpfSample\WpfSample\bin\Debug\Artist.pdb
 C:\Users\yosuke\Documents\Visual Studio 2015\Projects\WpfSample\WpfSample\obj\Debug\App.baml
+C:\Users\yosuke\Development\WpfSample\WpfSample\bin\Debug\WpfSample.exe.config
+C:\Users\yosuke\Development\WpfSample\WpfSample\obj\Debug\WpfSample.exe
+C:\Users\yosuke\Development\WpfSample\WpfSample\obj\Debug\WpfSample.pdb
+C:\Users\yosuke\Development\WpfSample\WpfSample\bin\Debug\WpfSample.exe
+C:\Users\yosuke\Development\WpfSample\WpfSample\bin\Debug\WpfSample.pdb
+C:\Users\yosuke\Development\WpfSample\WpfSample\bin\Debug\Artist.dll
+C:\Users\yosuke\Development\WpfSample\WpfSample\bin\Debug\Common.dll
+C:\Users\yosuke\Development\WpfSample\WpfSample\bin\Debug\Artist.pdb
+C:\Users\yosuke\Development\WpfSample\WpfSample\bin\Debug\Common.pdb
+C:\Users\yosuke\Development\WpfSample\WpfSample\obj\Debug\WpfSample.csprojResolveAssemblyReference.cache
+C:\Users\yosuke\Development\WpfSample\WpfSample\obj\Debug\MainWindow.g.cs
+C:\Users\yosuke\Development\WpfSample\WpfSample\obj\Debug\App.g.cs
+C:\Users\yosuke\Development\WpfSample\WpfSample\obj\Debug\WpfSample_MarkupCompile.cache
+C:\Users\yosuke\Development\WpfSample\WpfSample\obj\Debug\WpfSample_MarkupCompile.lref
+C:\Users\yosuke\Development\WpfSample\WpfSample\obj\Debug\App.baml
+C:\Users\yosuke\Development\WpfSample\WpfSample\obj\Debug\MainWindow.baml
+C:\Users\yosuke\Development\WpfSample\WpfSample\obj\Debug\WpfSample.g.resources
+C:\Users\yosuke\Development\WpfSample\WpfSample\obj\Debug\WpfSample.Properties.Resources.resources
+C:\Users\yosuke\Development\WpfSample\WpfSample\obj\Debug\WpfSample.csproj.GenerateResource.Cache
+C:\Users\yosuke\Development\WpfSample\WpfSample\bin\Debug\Microsoft.Expression.Interactions.dll
+C:\Users\yosuke\Development\WpfSample\WpfSample\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\yosuke\Development\WpfSample\WpfSample\bin\Debug\de\Microsoft.Expression.Interactions.resources.dll
+C:\Users\yosuke\Development\WpfSample\WpfSample\bin\Debug\en\Microsoft.Expression.Interactions.resources.dll
+C:\Users\yosuke\Development\WpfSample\WpfSample\bin\Debug\es\Microsoft.Expression.Interactions.resources.dll
+C:\Users\yosuke\Development\WpfSample\WpfSample\bin\Debug\fr\Microsoft.Expression.Interactions.resources.dll
+C:\Users\yosuke\Development\WpfSample\WpfSample\bin\Debug\it\Microsoft.Expression.Interactions.resources.dll
+C:\Users\yosuke\Development\WpfSample\WpfSample\bin\Debug\ja\Microsoft.Expression.Interactions.resources.dll
+C:\Users\yosuke\Development\WpfSample\WpfSample\bin\Debug\ko\Microsoft.Expression.Interactions.resources.dll
+C:\Users\yosuke\Development\WpfSample\WpfSample\bin\Debug\ru\Microsoft.Expression.Interactions.resources.dll
+C:\Users\yosuke\Development\WpfSample\WpfSample\bin\Debug\zh-Hans\Microsoft.Expression.Interactions.resources.dll
+C:\Users\yosuke\Development\WpfSample\WpfSample\bin\Debug\zh-Hant\Microsoft.Expression.Interactions.resources.dll
+C:\Users\yosuke\Development\WpfSample\WpfSample\bin\Debug\de\System.Windows.Interactivity.resources.dll
+C:\Users\yosuke\Development\WpfSample\WpfSample\bin\Debug\en\System.Windows.Interactivity.resources.dll
+C:\Users\yosuke\Development\WpfSample\WpfSample\bin\Debug\es\System.Windows.Interactivity.resources.dll
+C:\Users\yosuke\Development\WpfSample\WpfSample\bin\Debug\fr\System.Windows.Interactivity.resources.dll
+C:\Users\yosuke\Development\WpfSample\WpfSample\bin\Debug\it\System.Windows.Interactivity.resources.dll
+C:\Users\yosuke\Development\WpfSample\WpfSample\bin\Debug\ja\System.Windows.Interactivity.resources.dll
+C:\Users\yosuke\Development\WpfSample\WpfSample\bin\Debug\ko\System.Windows.Interactivity.resources.dll
+C:\Users\yosuke\Development\WpfSample\WpfSample\bin\Debug\ru\System.Windows.Interactivity.resources.dll
+C:\Users\yosuke\Development\WpfSample\WpfSample\bin\Debug\zh-Hans\System.Windows.Interactivity.resources.dll
+C:\Users\yosuke\Development\WpfSample\WpfSample\bin\Debug\zh-Hant\System.Windows.Interactivity.resources.dll

@@ -1,7 +1,10 @@
 ﻿using Common;
+using Common.Messenger;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,34 +13,35 @@ using System.Windows.Input;
 
 namespace Artist
 {
-    class ArtistViewModel : ViewModelBase
+    class ArtistViewModel : ViewModelBase, INotifyDataErrorInfo
     {
         private ArtistsModel _artists = new ArtistsModel();
 
-        /// <summary>
-        /// アーティスト名の一覧
-        /// </summary>
-        public ObservableCollection<Artist> Artists => _artists.Artists;
-
-        /// <summary>
-        /// 選択されたアーティストのID。デフォルトは0番目
-        /// </summary>
-        public int SelectedArtistId {
-            get { return _artists.SelectedArtistId; }
-            set { _artists.SelectedArtistId = value; }
+        public string ArtistNameA
+        {
+            get { return _artists.ArtistNameA; }
+            set { _artists.ArtistNameA = value; }
+        }
+        public string ArtistNameB
+        {
+            get { return _artists.ArtistNameB; }
+            set { _artists.ArtistNameB = value; }
+        }
+        public string ArtistNameC
+        {
+            get { return _artists.ArtistNameC; }
+            set { _artists.ArtistNameC = value; }
         }
 
-        /// <summary>
-        /// 追加するアーティストの名前
-        /// </summary>
-        public string ArtistName {
-            get { return _artists.ArtistName; }
-            set { _artists.ArtistName = value; }
+        private Messenger _errorMessenger = new Messenger();
+        public Messenger ErrorMessenger
+        {
+            get
+            {
+                return _errorMessenger;
+            }
         }
 
-        /// <summary>
-        /// アーティスト追加コマンド
-        /// </summary>
         public ICommand AddArtistCommand { get; private set; }
 
         private bool CanExecuteAddArtist(object state)
@@ -49,19 +53,10 @@ namespace Artist
         {
             TaskResult result = await _artists.Add();
 
-            switch (result.result)
+            if (result.result == TaskResultType.EFAILED)
             {
-                case TaskResultType.SUCCEEDED:
-                    MessageBox.Show(ArtistName + Resources("MSG_DIALOG_ADDED"), Resources("MSG_DIALOG_TITLE_CONFIRM"));
-                    break;
-                case TaskResultType.EREQUIRED:
-                    if (result.propertyName == nameof(ArtistName))
-                    {
-                        MessageBox.Show(Resources("MSG_DIALOG_REQUIRE"), Resources("MSG_DIALOG_TITLE_ERROR"));
-                    }
-                    break;
-                default:
-                    break;
+                MessageBox.Show(Resources("MSG_DIALOG_REQUIRE"), Resources("MSG_DIALOG_TITLE_ERROR"));
+                ErrorMessenger.Raise(new Message("エラーメッセージ"), (m) => { });
             }
         }
 
@@ -77,6 +72,37 @@ namespace Artist
             {
                 RaisePropertyChanged(e.PropertyName);
             };
+
+            _artists.ErrorsChanged += (sender, e) =>
+            {
+                ErrorsChanged?.Invoke(this, e);
+            };
         }
+
+        #region == implement of INotifyDataErrorInfo ==
+        public event EventHandler<DataErrorsChangedEventArgs> ErrorsChanged;
+
+        public IEnumerable GetErrors(string propertyName)
+        {
+            // Model で格納しているメッセージはあくまでもリソースのIDなので、変換する必要がある。
+            IEnumerable errors = ((INotifyDataErrorInfo)Model).GetErrors(propertyName);
+            HashSet<string> errorsForView = new HashSet<string>();
+
+            foreach(var MSG_ID in errors)
+            {
+                errorsForView.Add(Resources((string)MSG_ID));
+            }
+
+            return errorsForView.ToList().AsReadOnly();
+        }
+
+        public bool HasErrors
+        {
+            get
+            {
+                return ((INotifyDataErrorInfo)Model).HasErrors;
+            }
+        }
+        #endregion
     }
 }

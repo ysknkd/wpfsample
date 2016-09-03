@@ -4,7 +4,7 @@
 library
 C#
 .cs
-C:\Users\yosuke\Documents\Visual Studio 2015\Projects\WpfSample\Common\obj\Debug\
+C:\Users\yosuke\Development\WpfSample\Common\obj\Debug\
 Common
 none
 false
@@ -12,9 +12,9 @@ DEBUG;TRACE
 
 22050672825
 
-11-767061074
-13738642453
+16399470562
+151421892815
 Themes\Generic.xaml;Resources\TextResources.xaml;
 
-False
+True
 

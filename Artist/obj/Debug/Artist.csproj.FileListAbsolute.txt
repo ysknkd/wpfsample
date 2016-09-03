@@ -13,3 +13,40 @@ C:\Users\yosuke\Documents\Visual Studio 2015\Projects\WpfSample\Artist\obj\Debug
 C:\Users\yosuke\Documents\Visual Studio 2015\Projects\WpfSample\Artist\obj\Debug\Artist.csproj.GenerateResource.Cache
 C:\Users\yosuke\Documents\Visual Studio 2015\Projects\WpfSample\Artist\obj\Debug\Artist.dll
 C:\Users\yosuke\Documents\Visual Studio 2015\Projects\WpfSample\Artist\obj\Debug\Artist.pdb
+C:\Users\yosuke\Development\WpfSample\Artist\bin\Debug\Artist.dll
+C:\Users\yosuke\Development\WpfSample\Artist\bin\Debug\Artist.pdb
+C:\Users\yosuke\Development\WpfSample\Artist\bin\Debug\Common.dll
+C:\Users\yosuke\Development\WpfSample\Artist\bin\Debug\Common.pdb
+C:\Users\yosuke\Development\WpfSample\Artist\obj\Debug\Artist.csprojResolveAssemblyReference.cache
+C:\Users\yosuke\Development\WpfSample\Artist\obj\Debug\ArtistView.g.cs
+C:\Users\yosuke\Development\WpfSample\Artist\obj\Debug\Artist_MarkupCompile.cache
+C:\Users\yosuke\Development\WpfSample\Artist\obj\Debug\Artist_MarkupCompile.lref
+C:\Users\yosuke\Development\WpfSample\Artist\obj\Debug\ArtistView.baml
+C:\Users\yosuke\Development\WpfSample\Artist\obj\Debug\Artist.g.resources
+C:\Users\yosuke\Development\WpfSample\Artist\obj\Debug\Artist.Properties.Resources.resources
+C:\Users\yosuke\Development\WpfSample\Artist\obj\Debug\Artist.csproj.GenerateResource.Cache
+C:\Users\yosuke\Development\WpfSample\Artist\obj\Debug\Artist.dll
+C:\Users\yosuke\Development\WpfSample\Artist\obj\Debug\Artist.pdb
+C:\Users\yosuke\Development\WpfSample\Artist\bin\Debug\Microsoft.Expression.Interactions.dll
+C:\Users\yosuke\Development\WpfSample\Artist\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\yosuke\Development\WpfSample\Artist\bin\Debug\de\Microsoft.Expression.Interactions.resources.dll
+C:\Users\yosuke\Development\WpfSample\Artist\bin\Debug\en\Microsoft.Expression.Interactions.resources.dll
+C:\Users\yosuke\Development\WpfSample\Artist\bin\Debug\es\Microsoft.Expression.Interactions.resources.dll
+C:\Users\yosuke\Development\WpfSample\Artist\bin\Debug\fr\Microsoft.Expression.Interactions.resources.dll
+C:\Users\yosuke\Development\WpfSample\Artist\bin\Debug\it\Microsoft.Expression.Interactions.resources.dll
+C:\Users\yosuke\Development\WpfSample\Artist\bin\Debug\ja\Microsoft.Expression.Interactions.resources.dll
+C:\Users\yosuke\Development\WpfSample\Artist\bin\Debug\ko\Microsoft.Expression.Interactions.resources.dll
+C:\Users\yosuke\Development\WpfSample\Artist\bin\Debug\ru\Microsoft.Expression.Interactions.resources.dll
+C:\Users\yosuke\Development\WpfSample\Artist\bin\Debug\zh-Hans\Microsoft.Expression.Interactions.resources.dll
+C:\Users\yosuke\Development\WpfSample\Artist\bin\Debug\zh-Hant\Microsoft.Expression.Interactions.resources.dll
+C:\Users\yosuke\Development\WpfSample\Artist\bin\Debug\de\System.Windows.Interactivity.resources.dll
+C:\Users\yosuke\Development\WpfSample\Artist\bin\Debug\en\System.Windows.Interactivity.resources.dll
+C:\Users\yosuke\Development\WpfSample\Artist\bin\Debug\es\System.Windows.Interactivity.resources.dll
+C:\Users\yosuke\Development\WpfSample\Artist\bin\Debug\fr\System.Windows.Interactivity.resources.dll
+C:\Users\yosuke\Development\WpfSample\Artist\bin\Debug\it\System.Windows.Interactivity.resources.dll
+C:\Users\yosuke\Development\WpfSample\Artist\bin\Debug\ja\System.Windows.Interactivity.resources.dll
+C:\Users\yosuke\Development\WpfSample\Artist\bin\Debug\ko\System.Windows.Interactivity.resources.dll
+C:\Users\yosuke\Development\WpfSample\Artist\bin\Debug\ru\System.Windows.Interactivity.resources.dll
+C:\Users\yosuke\Development\WpfSample\Artist\bin\Debug\zh-Hans\System.Windows.Interactivity.resources.dll
+C:\Users\yosuke\Development\WpfSample\Artist\bin\Debug\zh-Hant\System.Windows.Interactivity.resources.dll
+C:\Users\yosuke\Development\WpfSample\Artist\obj\Debug\GeneratedInternalTypeHelper.g.cs

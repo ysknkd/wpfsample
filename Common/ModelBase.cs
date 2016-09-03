@@ -46,7 +46,7 @@ namespace Common
             result = _errors[propertyName].Add(error);
             if (result)
             {
-                //RaiseErrorsChanged(propertyName);
+                RaiseErrorsChanged(propertyName);
             }
 
             return result;

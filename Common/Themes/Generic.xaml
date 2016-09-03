@@ -157,6 +157,14 @@
     <Style x:Key="ControlContainer" TargetType="Grid">
         <Setter Property="Background" Value="#FFF0F0F0" />
     </Style>
+
+    <Style x:Key="ControlLabel" TargetType="TextBlock">
+        <Setter Property="Margin" Value="16, 0, 0, 0" />
+    </Style>
+
+    <Style x:Key="ControlTextBox" TargetType="TextBox">
+        <Setter Property="Margin" Value="8, 0, 0, 0" />
+    </Style>
     <!-- 
         //////// END CONTENTS CONTROL STYLES
     -->

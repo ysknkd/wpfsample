@@ -5,13 +5,17 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Artist"
              xmlns:vm="clr-namespace:Artist"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+             xmlns:triggers="clr-namespace:Common.Triggers;assembly=Common"
+             xmlns:actions="clr-namespace:Common.TriggerActions;assembly=Common"
              mc:Ignorable="d" 
              d:DesignHeight="480" d:DesignWidth="960"
              >
     <UserControl.DataContext>
         <vm:ArtistViewModel />
     </UserControl.DataContext>
-
+    
     <!-- リソースの読み込み -->
     <UserControl.Resources>
         <!-- 外部DLLからの読み込み -->
@@ -25,11 +29,16 @@
         </ResourceDictionary>
     </UserControl.Resources>
 
+    <i:Interaction.Triggers>
+        <triggers:MessageTrigger SourceObject="{Binding ErrorMessenger}">
+            <actions:RequireFocusAction />
+        </triggers:MessageTrigger>
+    </i:Interaction.Triggers>
+
     <!-- 要素のレイアウト -->
     <Grid Style="{StaticResource Container}">
         <Grid.RowDefinitions>
             <RowDefinition Height="48" />
-            <RowDefinition MinHeight="48" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <!-- ヘッダ -->
@@ -44,83 +53,21 @@
         </Border>
         <!-- コントロール部 -->
         <Grid Grid.Row="1" Style="{StaticResource ControlContainer}">
-            <Canvas>
-                <TextBlock Text="{StaticResource LABEL_DUMMY}" Canvas.Left="22" Canvas.Top="16" />
-                <TextBox Canvas.Left="111" Canvas.Top="10" Width="120"></TextBox>
-            </Canvas>
-        </Grid>
-        <Grid Grid.Row="2">
-            <!-- Maring は 左から 上 右 下 の順 -->
-            <GroupBox Margin="0" Width="320" Height="120" Header="{StaticResource LABEL_ARTISTS}">
-                <StackPanel Orientation="Horizontal" Margin="12">
-                    <!-- InputScopeはタッチキーボードのデフォルトレイアウトを指定できる。`EmailSmtpAddress`, `TelephoneNumber`, `Url`などが指定可能。 -->
-                    <!-- Binding のオプションで `UpdateSourceTrigger` を `PropertyChanged` に設定することで、入力中のイベントをBinding対象のSetterで受信できる -->
-                    <TextBox x:Name="artistName"
-                        InputMethod.IsInputMethodEnabled="False"
-                        InputScope="Default"
-                        Text="{Binding ArtistName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                        Validation.ErrorTemplate="{StaticResource ValidationErrorTemplate}"
-                        HorizontalAlignment="Left" Width="159" Height="30" VerticalAlignment="Top"/>
-                    <Button x:Name="btnAddArtist"
-                        Content="{StaticResource LABEL_ADD}"
-                        Command="{Binding AddArtistCommand}"
-                        HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="114" />
+            <StackPanel>
+                <StackPanel Margin="8, 8, 4, 0" Orientation="Horizontal" VerticalAlignment="Center">
+                    <Button Width="96" Height="28" Content="{StaticResource LABEL_BUTTON_DUMMY}"
+                            Command="{Binding AddArtistCommand}" />
+                    <TextBlock Style="{StaticResource ControlLabel}" Text="{StaticResource LABEL_DUMMY}" VerticalAlignment="Center" />
+                    <TextBox x:Name="NameA" TabIndex="1" Width="120"
+                             Text="{Binding ArtistNameA, Mode=TwoWay}" />
+                    <TextBlock Style="{StaticResource ControlLabel}" Text="{StaticResource LABEL_DUMMY}" VerticalAlignment="Center" />
+                    <TextBox x:Name="NameB" TabIndex="2" Width="120"
+                             Text="{Binding ArtistNameB, Mode=TwoWay}" />
+                    <TextBlock Style="{StaticResource ControlLabel}" Text="{StaticResource LABEL_DUMMY}" VerticalAlignment="Center" />
+                    <TextBox x:Name="NameC" TabIndex="3" Width="120"
+                             Text="{Binding ArtistNameC, Mode=TwoWay}" />
                 </StackPanel>
-            </GroupBox>
-            <GroupBox Width="540" Height="96" Header="{StaticResource LABEL_TEST_OF_COMBOBOX}">
-                <StackPanel Orientation="Horizontal" Margin="12">
-                    <ComboBox x:Name="comboBox"
-                        ItemsSource="{Binding Artists}"
-                        SelectedIndex="{Binding SelectedArtistId, Mode=TwoWay}"
-                        MaxDropDownHeight="64"
-                        DisplayMemberPath="Name"
-                        SelectedValuePath="Id"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Top"
-                        Width="158"
-                        Height="26" />
-                    <ComboBox x:Name="comboBoxCustomize"
-                        ItemsSource="{Binding Artists}"
-                        SelectedIndex="{Binding SelectedArtistId, Mode=TwoWay}"
-                        SelectedValuePath="Id"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Top"
-                        Width="158"
-                        Height="26">
-                        <ComboBox.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding Id}" />
-                                    <TextBlock Text=" : " />
-                                    <TextBlock Text="{Binding Name}" />
-                                </StackPanel>
-                            </DataTemplate>
-                        </ComboBox.ItemTemplate>
-                    </ComboBox>
-                    <ComboBox x:Name="comboBoxConverter"
-                        ItemsSource="{Binding Artists}"
-                        SelectedIndex="{Binding SelectedArtistId, Mode=TwoWay}"
-                        SelectedValuePath="Id"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Top"
-                        Width="158"
-                        Height="26">
-                        <ComboBox.ItemTemplate>
-                            <DataTemplate>
-                                <TextBlock>
-                                    <TextBlock.Text>
-                                        <MultiBinding StringFormat="{}{0} : {1}">
-                                            <Binding Path="Id" />
-                                            <Binding Path="Name" />
-                                        </MultiBinding>
-                                    </TextBlock.Text>
-                                </TextBlock>
-                            </DataTemplate>
-                        </ComboBox.ItemTemplate>
-                    </ComboBox>
-                </StackPanel>
-            </GroupBox>
-            <!-- Test of ComboBox -->
+            </StackPanel>
         </Grid>
     </Grid>
 

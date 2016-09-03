@@ -16,61 +16,69 @@ namespace Artist
     {
         public ObservableCollection<Artist> Artists { get; private set; } = new ObservableCollection<Artist>();
 
-        /// <summary>
-        /// 選択されたアーティストのID。デフォルトは0番目
-        /// </summary>
-        public int SelectedArtistId { get; set; } = 0;
-
-        /// <summary>
-        /// 追加するアーティストの名前
-        /// </summary>
-        private string _artistName = "";
-        public string ArtistName {
-            get
-            {
-                return _artistName;
-            }
+        private string _artistNameA = "";
+        public string ArtistNameA
+        {
+            get { return _artistNameA; }
             set
             {
-                _artistName = value;
-                ValidateProperty(value);
-                RaisePropertyChanged();
+                _artistNameA = value;
+                RemoveError(nameof(ArtistNameA));
             }
         }
 
-        protected void ValidateProperty(object value,[CallerMemberName] string propertyName = null)
+        private string _artistNameB = "";
+        public string ArtistNameB
         {
-            switch (propertyName)
+            get { return _artistNameB; }
+            set
             {
-                case nameof(ArtistName):
-                    string validated = "";
-                    string input = (string)value;
-
-                    if (input.Length > 0
-                        && ! Validator.IsAlphanumeric((string)value, out validated))
-                    {
-                        AddError(nameof(ArtistName), "MSG_ERROR_ARTIST_ALPHANUMERIC");
-                    }
-                    else
-                    {
-                        RemoveError(nameof(ArtistName));
-                    }
-                    break;
+                _artistNameB = value;
+                RemoveError(nameof(ArtistNameB));
             }
         }
 
-        /// <summary>
-        /// アーティストの追加
-        /// </summary>
-        /// <returns></returns>
+        private string _artistNameC = "";
+        public string ArtistNameC
+        {
+            get { return _artistNameC; }
+            set
+            {
+                _artistNameC = value;
+                RemoveError(nameof(ArtistNameC));
+            }
+        }
+
+        private bool ValidateProperty()
+        {
+            bool isValid = true;
+
+            if (string.IsNullOrEmpty(ArtistNameA))
+            {
+                isValid = false;
+                AddError(nameof(ArtistNameA), "MSG_DIALOG_REQUIRE");
+            }
+            if (string.IsNullOrEmpty(ArtistNameB))
+            {
+                isValid = false;
+                AddError(nameof(ArtistNameB), "MSG_DIALOG_REQUIRE");
+            }
+            if (string.IsNullOrEmpty(ArtistNameC))
+            {
+                isValid = false;
+                AddError(nameof(ArtistNameC), "MSG_DIALOG_REQUIRE");
+            }
+
+            return isValid;
+        }
+
         public async Task<TaskResult> Add()
         {
-            if (string.IsNullOrEmpty(ArtistName))
+            bool isValid = ValidateProperty();
+
+            if (! isValid)
             {
-                return new TaskResult
-                {
-                    result = TaskResultType.EREQUIRED, propertyName = nameof(ArtistName)
-                };
+                return new TaskResult() { result = TaskResultType.EFAILED };
             }
 
             await Task.Run(() =>
@@ -78,20 +86,12 @@ namespace Artist
                 // 時間のかかる処理を再現
                 Thread.Sleep(200);
             });
-            Artists.Add(new Artist { Id = Artists.Count, Name = ArtistName });
 
-            return new TaskResult
-            {
-                result = TaskResultType.SUCCEEDED
-            };
+            return new TaskResult() { result = TaskResultType.SUCCEEDED };
         }
 
         public ArtistsModel()
         {
-            // テストデータの追加
-            Artists.Add(new Artist { Id = Artists.Count, Name = "Nine Inch Nails" });
-            Artists.Add(new Artist { Id = Artists.Count, Name = "Nirvana" });
-            Artists.Add(new Artist { Id = Artists.Count, Name = "Radiohead" });
         }
     }
 }

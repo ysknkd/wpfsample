@@ -8,7 +8,7 @@ using System.Windows.Input;
 
 namespace Common
 {
-    public abstract class ViewModelBase : INotifyPropertyChanged, INotifyDataErrorInfo
+    public abstract class ViewModelBase : INotifyPropertyChanged
     {
         #region == default properties ==
         public ModelBase Model;
@@ -23,32 +23,6 @@ namespace Common
         protected virtual void RaisePropertyChanged([CallerMemberName]string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-        #endregion
-
-        #region == implement of INotifyDataErrorInfo ==
-        public event EventHandler<DataErrorsChangedEventArgs> ErrorsChanged;
-
-        public IEnumerable GetErrors(string propertyName)
-        {
-            // Model で格納しているメッセージはあくまでもリソースのIDなので、変換する必要がある。
-            IEnumerable errors = ((INotifyDataErrorInfo)Model).GetErrors(propertyName);
-            HashSet<string> errorsForView = new HashSet<string>();
-
-            foreach(var MSG_ID in errors)
-            {
-                errorsForView.Add(Resources((string)MSG_ID));
-            }
-
-            return errorsForView.ToList().AsReadOnly();
-        }
-
-        public bool HasErrors
-        {
-            get
-            {
-                return ((INotifyDataErrorInfo)Model).HasErrors;
-            }
         }
         #endregion
 
