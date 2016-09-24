@@ -12,7 +12,6 @@ C:\Users\yosuke\Documents\Visual Studio 2015\Projects\WpfSample\Common\obj\Debug
 C:\Users\yosuke\Documents\Visual Studio 2015\Projects\WpfSample\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
 C:\Users\yosuke\Development\WpfSample\Common\bin\Debug\Common.dll
 C:\Users\yosuke\Development\WpfSample\Common\bin\Debug\Common.pdb
-C:\Users\yosuke\Development\WpfSample\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
 C:\Users\yosuke\Development\WpfSample\Common\obj\Debug\Common_MarkupCompile.cache
 C:\Users\yosuke\Development\WpfSample\Common\obj\Debug\Common_MarkupCompile.lref
 C:\Users\yosuke\Development\WpfSample\Common\obj\Debug\Themes\Generic.baml

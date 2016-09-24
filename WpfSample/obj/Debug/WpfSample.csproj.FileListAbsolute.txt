@@ -58,3 +58,5 @@ C:\Users\yosuke\Development\WpfSample\WpfSample\bin\Debug\ko\System.Windows.Inte
 C:\Users\yosuke\Development\WpfSample\WpfSample\bin\Debug\ru\System.Windows.Interactivity.resources.dll
 C:\Users\yosuke\Development\WpfSample\WpfSample\bin\Debug\zh-Hans\System.Windows.Interactivity.resources.dll
 C:\Users\yosuke\Development\WpfSample\WpfSample\bin\Debug\zh-Hant\System.Windows.Interactivity.resources.dll
+C:\Users\yosuke\Development\WpfSample\WpfSample\bin\Debug\C1.WPF.FlexGrid.4.dll
+C:\Users\yosuke\Development\WpfSample\WpfSample\bin\Debug\C1.WPF.FlexGrid.4.xml

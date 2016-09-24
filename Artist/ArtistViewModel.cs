@@ -1,4 +1,5 @@
-﻿using Common;
+﻿using C1.WPF.FlexGrid;
+using Common;
 using Common.Messenger;
 using System;
 using System.Collections;
@@ -32,6 +33,11 @@ namespace Artist
             get { return _artists.ArtistNameC; }
             set { _artists.ArtistNameC = value; }
         }
+        public ObservableCollection<Artist> Artists
+        {
+            get { return _artists.Artists; }
+            set { _artists.Artists = value; }
+        }
 
         private Messenger _errorMessenger = new Messenger();
         public Messenger ErrorMessenger
@@ -43,6 +49,7 @@ namespace Artist
         }
 
         public ICommand AddArtistCommand { get; private set; }
+        public ICommand FlexGridReloadedRows { get; private set; }
 
         private bool CanExecuteAddArtist(object state)
         {
@@ -60,6 +67,19 @@ namespace Artist
             }
         }
 
+        private bool CanExecuteFlexGridReloadedRows(object flexgrid)
+        {
+            return true;
+        }
+
+        private void ExecuteFlexGridReloadedRows(object flexGridRows)
+        {
+            RowCollection rows = flexGridRows as RowCollection;
+            List<Artist> list;
+
+            list = rows.Select(r => (Artist)r.DataItem).ToList();
+        }
+
         /// <summary>
         /// コンストラクタ
         /// </summary>
@@ -67,6 +87,7 @@ namespace Artist
         {
             Model = _artists;
             AddArtistCommand = CreateCommand(ExecuteAddArtist, CanExecuteAddArtist);
+            FlexGridReloadedRows = CreateCommand(ExecuteFlexGridReloadedRows, CanExecuteFlexGridReloadedRows);
 
             _artists.PropertyChanged += (sender, e) =>
             {
