@@ -14,7 +14,7 @@ namespace Artist
 
     class ArtistsModel : ModelBase
     {
-        public ObservableCollection<Artist> Artists { get; private set; } = new ObservableCollection<Artist>();
+        public ObservableCollection<Artist> Artists { get; set; } = new ObservableCollection<Artist>();
 
         private string _artistNameA = "";
         public string ArtistNameA
@@ -92,6 +92,11 @@ namespace Artist
 
         public ArtistsModel()
         {
+            Artists.Add(new Artist() { Id = 1, Name = "Massive Attack" });
+            Artists.Add(new Artist() { Id = 2, Name = "Nine Inch Nails" });
+            Artists.Add(new Artist() { Id = 3, Name = "Nirvana" });
+            Artists.Add(new Artist() { Id = 4, Name = "RADIOHEAD" });
+            Artists.Add(new Artist() { Id = 5, Name = "Arctic Monkeys" });
         }
     }
 }

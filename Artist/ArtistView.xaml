@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Artist"
+             xmlns:c1="http://schemas.componentone.com/winfx/2006/xaml" 
              xmlns:vm="clr-namespace:Artist"
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
@@ -39,6 +40,7 @@
     <Grid Style="{StaticResource Container}">
         <Grid.RowDefinitions>
             <RowDefinition Height="48" />
+            <RowDefinition Height="48" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <!-- ヘッダ -->
@@ -69,6 +71,22 @@
                 </StackPanel>
             </StackPanel>
         </Grid>
+        <Border Grid.Row="2">
+            <c1:C1FlexGrid x:Name="FlexGird"
+                           ItemsSource="{Binding Artists}"
+                           AutoGenerateColumns="False">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="LoadedRows">
+                        <i:InvokeCommandAction Command="{Binding FlexGridReloadedRows}" CommandParameter="{Binding Path=Rows, ElementName=FlexGird}" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+                <c1:C1FlexGrid.Columns>
+                    <c1:Column Header="Id" Binding="{Binding Id}" Width="32" />
+                    <c1:Column Header="Name" Binding="{Binding Name}" Width="104" />
+                    <c1:Column Header="Column 3" />
+                </c1:C1FlexGrid.Columns>
+            </c1:C1FlexGrid>
+        </Border>
     </Grid>
 
 </UserControl>
